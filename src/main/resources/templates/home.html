@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3>Створити документ</h3>
+<form th:action="@{/saveDoc}" method="post" th:object="${newDoc}">
+    назва: <input th:field="*{name}">
+    дата створення: <input th:field="*{date}">
+    тип документу: <select th:field="*{type}">
+    <option th:each="type1 : ${types}" th:value="${type1}" th:text="${type1}"></option>
+</select>
+    розмір: <input th:field="*{size}">
+
+    <input type="submit" value="Створити!"><br><br>
+</form>
+<hr>
+
+<h3>Вивести всі документи в шаблон</h3>
+<form th:action="@{/findAll}" method="get">
+    <input type="submit" value="Вивести!">
+</form>
+<hr>
+
+<h3>Вивести посортовані документи: </h3>
+за назвою
+<form th:action="@{/sortName}" method="get">
+    <input type="submit" value="Вивести!">
+</form><br>
+
+ за типом
+<form th:action="@{/sortType}" method="get">
+    <input type="submit" value="Вивести!">
+</form><br>
+
+за розміром
+<form th:action="@{/sortSize}" method="get">
+    <input type="submit" value="Вивести!">
+</form>
+<hr>
+
+<h3>Знайти документ за назвою</h3>
+<form th:action="@{/findName}" method="get">
+    Введіть назву: <input type="text" name="name">
+    <input type="submit" value="Знайти!"><br><br>
+</form>
+<hr>
+
+<h3>Знайти документ за датою</h3>
+<form th:action="@{/findDate}" method="get" >
+    Вверіть дату: <input th:field="${newDoc.date}">
+    <input type="submit" value="Знайти!"><br><br>
+</form>
+<hr>
+
+<h3>Знайти документи за діапазоном дат</h3>
+<form th:action="@{/findDateInRange}" method="get" >
+    Введіть початкову дату: <input  type="date" name="dateStart">
+    Введіть кінцеву дату: <input  type="date" name="dateFinish">
+    <input type="submit" value="Знайти!"><br><br>
+</form>
+<hr>
+
+<h3>Знайти документ за типом</h3>
+<form th:action="@{/findType}" method="get">
+    Введіть назву: <select name="type">
+    <option th:each="type1 : ${types}" th:value="${type1}" th:text="${type1}"></option>
+</select>
+    <input type="submit" value="Знайти!"><br><br>
+</form>
+<hr>
+
+<h3>Знайти документ за розміром</h3>
+<form th:action="@{/findSize}" method="get">
+    Введіть розмір: <input type="number" , name="size">
+    <input type="submit" value="Знайти!"><br><br>
+</form>
+<hr>
+
+</body>
+</html>

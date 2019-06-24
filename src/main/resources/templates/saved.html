@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>saved</title>
+</head>
+<body>
+
+Новий документ збережено:<br><br>
+[[${newDoc}]]
+
+<br><br>
+<form th:action="@{/}" method="get">
+    <input type="submit" value="Продовжити роботу!"><br><br>
+</form>
+
+</body>
+</html>

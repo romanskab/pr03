@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>findAll</title>
+</head>
+<body>
+
+Знайдені документи:<br><br>
+<ul>
+    <li th:each="document:${documents}" th:text="${document.toString()}"></li>
+</ul>
+
+<br><br>
+<form th:action="@{/}" method="get">
+    <input type="submit" value="Продовжити роботу!"><br><br>
+</form>
+
+</body>
+</html>

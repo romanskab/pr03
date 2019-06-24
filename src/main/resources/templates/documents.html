@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>docs</title>
+</head>
+<body>
+
+<div th:each="document:${list}">
+    <a th:href="@{'/doc-' + ${document.getId()}}" th:text="${document.getName()}"></a>
+</div>
+
+</body>
+</html>
